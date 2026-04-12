@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Install apache2 and nginx packages
+    apt:
+      update_cache: true
+      name: apache2
+      name: nginx
+    when: ansible_distribution == "Ubuntu"
