@@ -1,0 +1,52 @@
+---
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Upgrade system
+  apt:
+    upgrade: dist
+  when: ansible_os_family == "Debian"
+
+- name: Install packages
+  apt:
+    name:
+      - nginx
+      - screenfetch
+      # - docker.io
+      - htop
+      - speedtest-cli
+      - mesa-utils
+      - tmux
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Copy bash_aliases
+  tags: config
+  template:
+    src: bash_aliases.j2                     # if .j2, use templates
+    dest: "{{ user_home }}/.bash_aliases"    # dynamically resolves home directory
+    owner: "{{ user_name }}"                 # automatically matches username
+    group: "{{ group_name }}"
+    mode: '0644'
+  notify: source_bash_aliases
+
+- name: Copy tmux config
+  tags: config
+  template:
+    src: tmux.conf.j2
+    dest: "{{ user_home }}/.tmux.conf"
+    owner: "{{ user_name }}"
+    group: "{{ group_name }}"
+    mode: '0644'
+
+- name: Copy vimrc
+  tags: config
+  copy:
+    src: vimrc                      # if not .j2, use copy module
+    dest: "{{ user_home }}/.vimrc"
+    owner: "{{ user_name }}"
+    group: "{{ group_name }}"
+    mode: '0644'
