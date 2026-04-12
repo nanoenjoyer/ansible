@@ -1,21 +1,29 @@
 ---
 
-- hosts: all
+- hosts: localhost
+  connection: local     # won't require ssh
   become: true
+
   tasks:
 
-  - name: Full update and install packages
-    apt:
-      update_cache: true
-      upgrade: dist
-      name:
-        - nginx
-        - screenfetch
-        - git
-        - ansible
-        # - docker.io
-        - htop
-        - speedtest-cli
-        - mesa-utils
-      state: present
-    when: ansible_distribution in ["Debian", "Ubuntu"]
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Upgrade system
+      apt:
+        upgrade: dist
+      when: ansible_os_family == "Debian"
+
+    - name: Install packages
+      apt:
+        name:
+          - nginx
+          - screenfetch
+          # - docker.io
+          - htop
+          - speedtest-cli
+          - mesa-utils
+        state: present
+      when: ansible_os_family == "Debian"
