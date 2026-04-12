@@ -31,7 +31,6 @@
     owner: "{{ user_name }}"                 # automatically matches username
     group: "{{ group_name }}"
     mode: '0644'
-  notify: source_bash_aliases
 
 - name: Copy tmux config
   tags: config

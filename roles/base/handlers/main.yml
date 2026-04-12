@@ -1,8 +1,0 @@
----
-
-- name: source_bash_aliases
-  tags: bash
-  shell: |
-    source /home/ubuntu/.bash_aliases
-  args:
-    executable: /bin/bash       # /bin/bash ensures it uses bash (not sh).
