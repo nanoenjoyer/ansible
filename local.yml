@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Full update and install packages
+    apt:
+      update_cache: true
+      upgrade: dist
+      name:
+        - nginx
+        - screenfetch
+        - git
+        - ansible
+        - docker.io
+        - htop
+        - speedtest-cli
+        - mesa-utils
+      state: present
+    when: ansible_distribution in ["Debian", "Ubuntu"]
