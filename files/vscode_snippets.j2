@@ -1,0 +1,173 @@
+{
+	"console.log": {
+		"scope": "javascript,typescript",
+		"prefix": "cl",
+		"body": [
+			"console.log($1)",
+		],
+		"description": "snippet for console.log"
+	},
+
+	"html base layout": {
+		"scope": "html",
+		"prefix": "html",
+		"body": [
+			"<!DOCTYPE html>",
+			// "\t" = 1 tab (2 space indentation), you could use spaces in there instead of "\t".
+			"<html lang='en'>",
+			"<head>",
+			"  <meta charset='UTF-8'>",
+			"  <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+			"\t<title>$1</title>",
+			"\t<link rel='stylesheet' href='$2'>",
+			"\t<script src='$3' defer></script>",
+			"</head>",
+			"<body>",
+			"\t<div class='container'>",
+			"",
+			"\t\t<img id='themeToggle' src='images/icons/moon.png' alt='Toggle Theme' title='Change Theme'>",
+			"\t\t$4",
+			"\t</div>",
+			"</body>",
+			"</html>"
+		],
+		"description": "html base layout snippet"
+	},
+
+	"dayjs shortcut": {
+		"scope": "javascript",
+		"prefix": "dayjs",
+		"body": [
+			"import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';"
+		],
+		"description": "snippet for the JavaScript library Day.js"
+	},
+
+	"Run main code only if program is run directly": {
+		"scope": "python",
+		"prefix": "ifmain",
+		"body": [
+			"if __name__ == '__main__':",
+			"  main()"
+		],
+		"description": "snippet for running main code only if program is executed directly and not as a module"
+	},
+
+	"PyQt5 Base Code": {
+		"scope": "python",
+		"prefix": "app",
+		"body": [
+			"import sys",
+			"from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QLabel,",
+			"                             QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit)",
+			"from PyQt5.QtGui import QIcon, QFont, QPixmap",
+			"from PyQt5.QtCore import Qt",
+			"",
+			"",
+			"class MainWindow(QMainWindow):",
+			"\tdef __init__(self):",
+			"\t\tsuper().__init__()",
+			"\t\tself.setWindowTitle('$1')",
+			"\t\tself.setGeometry(700, 300, 600, 500)",
+			"\t\tself.setWindowIcon(QIcon('/home/ibrahim/$2'))",
+			"\t\tself.initUI()",
+			"",
+			"\tdef initUI(self):",
+			"\t\tcentral_widget = QWidget(self)",
+			"\t\tself.setCentralWidget(central_widget)",
+			"",
+			"\t\tself.setStyleSheet('''",
+			"\t\t\t$3",
+			"\t\t''')",
+			"",
+			"def main():",
+   			"\tapp = QApplication(sys.argv)",
+   			"\twindow = MainWindow()",
+   			"\twindow.show()",
+   			"\tsys.exit(app.exec())",
+			"",
+			"if __name__ == '__main__':",
+  			"\tmain()"
+		],
+		"description": "snippet for setting the base code for app creation in python"
+	},
+
+	"Theme - JavaScript": {
+		"scope": "javascript",
+		"prefix": "jstheme",
+		"body": [
+			"const savedTheme = localStorage.getItem('theme')",
+			"const html = document.documentElement",
+			"const toggleBtn = document.getElementById('themeToggle')",
+			"",
+			"setTheme()",
+			"",
+			"if (savedTheme) {",
+			"\thtml.setAttribute('data-theme', savedTheme)",
+			"\ttoggleBtn.src = savedTheme == 'dark' ? 'images/icons/sun.png' : 'images/icons/moon.png'",
+			"}",
+			"",
+			"if (!savedTheme) {",
+			"\tconst prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches",
+			"\thtml.setAttribute('data-theme', prefersDark ? 'dark' : 'light')",
+			"\ttoggleBtn.src = prefersDark ? 'images/icons/sun.png' : 'images/icons/moon.png'",
+			"}",
+			"",
+			"function setTheme() {",
+			"",
+			"\ttoggleBtn.addEventListener('click', () => {",
+			"\t\tconst currentTheme = document.documentElement.getAttribute('data-theme')",
+			"",
+			"\t\tif (currentTheme == 'dark') {",
+			"\t\t\thtml.setAttribute('data-theme', 'light')",
+            "\t\t\ttoggleBtn.src = 'images/icons/moon.png'",
+            "\t\t\tlocalStorage.setItem('theme', 'light')",
+			"\t\t} else {",
+			"\t\t\thtml.setAttribute('data-theme', 'dark')",
+			"\t\t\ttoggleBtn.src = 'images/icons/sun.png'",
+			"\t\t\tlocalStorage.setItem('theme', 'dark')",
+			"\t\t}",
+			"\t})",
+			"}"
+		],
+		"description": "snippet for setting theme on websites (JS part)"
+	},
+
+	"Theme - CSS": {
+		"scope": "css",
+		"prefix": "csstheme",
+		"body": [
+			":root {",
+  			"\t--bg: white;",
+  			"\t--text: black;",
+  			"\t--border: black;",
+			"}",
+			"",
+			"[data-theme='dark'] {",
+			"\t--bg: rgb(26, 26, 26);",
+			"\t--text: white;",
+			"}",
+			"",
+			"body {",
+			"\tmargin: 0;",
+			"\tpadding: 0;",
+			"\tfont-family: sans-serif;",
+			"\tbackground: var(--bg);",
+			"\tcolor: var(--text);",
+			"\ttransition: background 0s, color 0s;",
+			"}",
+			"",
+			"#themeToggle {",
+			"\tposition: absolute;",
+			"\ttop: 20px;",
+			"\tright: 20px;",
+			"\twidth: 30px;",
+			"\theight: 30px;",
+			"}",
+			"#themeToggle:hover {",
+			"\tcursor: pointer;",
+			"}",
+		],
+		"description": "snippet for setting theme on websites (CSS part)"
+	}
+}
