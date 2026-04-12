@@ -10,4 +10,6 @@
       name:
         - apache2
         - nginx
+        - screenfetch
+        - git
     when: ansible_distribution == "Ubuntu"
