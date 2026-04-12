@@ -2,4 +2,3 @@
 # vars file for roles/base
 user_home: "{{ ansible_user_dir }}"
 user_name: "{{ ansible_user_id }}"
-group_name: "{{ ansible_user_gid }}"

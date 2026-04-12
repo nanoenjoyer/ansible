@@ -29,7 +29,7 @@
     src: bash_aliases.j2                     # if .j2, use templates
     dest: "{{ user_home }}/.bash_aliases"    # dynamically resolves home directory
     owner: "{{ user_name }}"                 # automatically matches username
-    group: "{{ group_name }}"
+    group: "{{ user_name }}"
     mode: '0644'
 
 - name: Copy tmux config
@@ -38,7 +38,7 @@
     src: tmux.conf.j2
     dest: "{{ user_home }}/.tmux.conf"
     owner: "{{ user_name }}"
-    group: "{{ group_name }}"
+    group: "{{ user_name }}"
     mode: '0644'
 
 - name: Copy vimrc
@@ -47,5 +47,5 @@
     src: vimrc                      # if not .j2, use copy module
     dest: "{{ user_home }}/.vimrc"
     owner: "{{ user_name }}"
-    group: "{{ group_name }}"
+    group: "{{ user_name }}"
     mode: '0644'
