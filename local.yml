@@ -13,7 +13,7 @@
         - screenfetch
         - git
         - ansible
-        - docker.io
+        # - docker.io
         - htop
         - speedtest-cli
         - mesa-utils
