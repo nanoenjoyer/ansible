@@ -1,16 +1,21 @@
 ---
 
 - name: Update apt cache
+  become: true
   apt:
     update_cache: yes
   when: ansible_os_family == "Debian"
 
 - name: Upgrade system
+  become: true
   apt:
     upgrade: dist
   when: ansible_os_family == "Debian"
 
 - name: Install packages
+  # use sudo only for apt modules
+  # (this fixes dotfiles being copied to root user in 'template'and 'copy' modules)
+  become: true
   apt:
     name:
       - nginx

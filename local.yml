@@ -2,7 +2,7 @@
 
 - hosts: localhost
   connection: local     # won't require ssh
-  become: true
+  gather_facts: true    # makes sure vars are used correctly
 
   roles:
     - base
