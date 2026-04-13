@@ -54,3 +54,19 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: '0644'
+
+- name: Copy logos
+  tags: pics
+  copy:
+    src: logos                    # no trailing slash = Copy the folder
+    dest: "{{ user_home }}/Pictures/"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+
+- name: Copy animal images
+  tags: pics
+  copy:
+    src: animals
+    dest: "{{ user_home }}/Pictures/"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
