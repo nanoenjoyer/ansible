@@ -15,9 +15,12 @@ ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K
 
 - only get config files
 ```bash
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git --tags config && source ~/.bash_aliases
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
+--tags config && \
+source ~/.bash_aliases
 ```
 - only get pictures
 ```bash
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git --tags pics
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
+--tags pics
 ```
