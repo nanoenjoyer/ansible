@@ -1,6 +1,8 @@
 
 ```bash
-sudo apt update && sudo apt install -y git ansible
+sudo apt update && sudo apt install -y git ansible \
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
+source ~/.bash_aliases
 ```
 ```bash
 ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K
@@ -15,6 +17,7 @@ ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K
 
 - only get config files
 ```bash
+sudo apt update && sudo apt install -y git ansible \
 ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
 --tags config && \
 source ~/.bash_aliases
