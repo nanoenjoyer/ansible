@@ -1,7 +1,7 @@
 
 ```bash
-sudo apt update && sudo apt install -y git ansible \
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K \
+sudo apt update && sudo apt install -y git ansible && \
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K && \
 source ~/.bash_aliases
 ```
 > This looks for local.yml in root of repo directory.
@@ -14,7 +14,7 @@ source ~/.bash_aliases
 
 - only get config files
 ```bash
-sudo apt update && sudo apt install -y git ansible \
+sudo apt update && sudo apt install -y git ansible && \
 ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
 --tags config && \
 source ~/.bash_aliases
