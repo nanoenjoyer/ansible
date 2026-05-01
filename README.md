@@ -2,7 +2,8 @@
 ```bash
 sudo apt update && sudo apt install -y git ansible && \
 ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K && \
-source ~/.bash_aliases
+source ~/.bash_aliases && \
+newgrp docker
 ```
 > This looks for local.yml in root of repo directory.
 
