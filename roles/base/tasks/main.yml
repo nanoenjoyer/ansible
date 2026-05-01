@@ -20,13 +20,26 @@
     name:
       - nginx
       - screenfetch
-      # - docker.io
+      - docker.io
       - htop
       - speedtest-cli
       - mesa-utils
       - tmux
     state: present
   when: ansible_os_family == "Debian"
+
+- name: Enable and Start Docker
+  become: true
+  service:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Add user to docker group
+  become: true
+  user:
+    name: "{{ user_name }}"
+    groups: docker
 
 - name: Copy bash_aliases
   tags: config
@@ -62,4 +75,7 @@
     dest: "{{ user_home }}/Pictures/"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
-    mode: '0644'
+    mode: '0644'                                  
+
+    append: true
+
