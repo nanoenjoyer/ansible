@@ -1,11 +1,8 @@
 
 ```bash
 sudo apt update && sudo apt install -y git ansible \
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K \
 source ~/.bash_aliases
-```
-```bash
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K
 ```
 > This looks for local.yml in root of repo directory.
 
