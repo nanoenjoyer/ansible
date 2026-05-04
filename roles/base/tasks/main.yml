@@ -75,7 +75,7 @@
     group: "{{ user_name }}"
     mode: '0644'
 
-- name: Copy logos
+- name: Copy Pictures
   tags: pics
   copy:
     src: pictures/                  # copy contents of pictures dir
