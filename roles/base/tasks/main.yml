@@ -24,7 +24,7 @@
       - nginx
       - screenfetch
       - docker.io
-      - openjdk-17-jdk
+      - default-jdk
       - htop
       - speedtest-cli
       - mesa-utils
