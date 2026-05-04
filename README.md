@@ -13,15 +13,27 @@ newgrp docker
 
 > You can safely ignore the warnings about hostnames, ansible is used to using hostnames for configuration but since we're just using pull on localhost there will be no host names and thats normal, the pull will still work and tasks will be run.
 
+- get updates, packages, and config files
+```bash
+sudo apt update && sudo apt install -y git ansible && \
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K \
+--tags "pkg, config" && \
+source ~/.bash_aliases && \
+newgrp docker
+```
+
+- only get updates and packages
+```bash
+sudo apt update && sudo apt install -y git ansible && \
+ansible-pull -U https://github.com/nanoenjoyer/ansible.git -K \
+--tags pkg && \
+newgrp docker
+```
+
 - only get config files
 ```bash
 sudo apt update && sudo apt install -y git ansible && \
 ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
 --tags config && \
 source ~/.bash_aliases
-```
-- only get pictures
-```bash
-ansible-pull -U https://github.com/nanoenjoyer/ansible.git \
---tags pics
 ```
