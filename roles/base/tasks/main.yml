@@ -1,18 +1,21 @@
 ---
 
 - name: Update apt cache
+  tags: pkg
   become: true
   apt:
     update_cache: yes
   when: ansible_os_family == "Debian"
 
 - name: Upgrade system
+  tags: pkg
   become: true
   apt:
     upgrade: dist
   when: ansible_os_family == "Debian"
 
 - name: Install packages
+  tags: pkg
   # use sudo only for apt modules
   # (this fixes dotfiles being copied to root user in 'template'and 'copy' modules)
   become: true
@@ -21,6 +24,7 @@
       - nginx
       - screenfetch
       - docker.io
+      - openjdk-17-jdk
       - htop
       - speedtest-cli
       - mesa-utils
@@ -29,6 +33,7 @@
   when: ansible_os_family == "Debian"
 
 - name: Enable and Start Docker
+  tags: pkg
   become: true
   service:
     name: docker
@@ -36,6 +41,7 @@
     state: started
 
 - name: Add user to docker group
+  tags: pkg
   become: true
   user:
     name: "{{ user_name }}"
@@ -77,4 +83,3 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: '0644'                                  
-
