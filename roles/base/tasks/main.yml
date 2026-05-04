@@ -25,6 +25,7 @@
       - htop
       - mesa-utils
       - tmux
+      - vim
       - nginx
       - docker.io
       - default-jdk
