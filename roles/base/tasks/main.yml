@@ -21,14 +21,15 @@
   become: true
   apt:
     name:
-      - nginx
-      - screenfetch
-      - docker.io
-      - default-jdk
+      - curl
       - htop
-      - speedtest-cli
       - mesa-utils
       - tmux
+      - nginx
+      - docker.io
+      - default-jdk
+      - screenfetch
+      - speedtest-cli
     state: present
   when: ansible_os_family == "Debian"
 
