@@ -29,6 +29,7 @@
       - vim
       - nginx
       - docker.io
+      - docker-compose
       - default-jdk
       - screenfetch
       - speedtest-cli
