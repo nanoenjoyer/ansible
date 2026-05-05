@@ -24,6 +24,7 @@
       - curl
       - htop
       - mesa-utils
+      - tree
       - tmux
       - vim
       - nginx
