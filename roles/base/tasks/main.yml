@@ -31,6 +31,7 @@
       - docker.io
       - docker-compose
       - default-jdk
+      - maven
       - screenfetch
       - speedtest-cli
     state: present
