@@ -27,6 +27,7 @@
       - tree
       - tmux
       - vim
+      - vlc
       - nginx
       - docker.io
       - docker-compose
