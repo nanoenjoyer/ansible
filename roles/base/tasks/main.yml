@@ -27,6 +27,8 @@
       - tree
       - tmux
       - vim
+      - vlc
+      - kdenlive
       - nginx
       - docker.io
       - docker-compose
@@ -87,4 +89,4 @@
     dest: "{{ user_home }}/Pictures/"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
-    mode: '0644'                                  
+    mode: '0644'
