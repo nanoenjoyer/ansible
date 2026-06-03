@@ -57,12 +57,15 @@ alias trs='tmux rename-session'
 # "&" --> makes process run in the background, this allows us to use other commands in the terminal.
 # "setsid" --> makes the process still run if we terminate the terminal session.
 # "/dev/null 2>&1" --> sends stderr(standard error) and stdout(standar output) to /dev/null.
-alias steam='setsid snap run steam >/dev/null 2>&1 &'
+alias steam='setsid steam >/dev/null 2>&1 &'
 alias audacity='setsid audacity >/dev/null 2>&1 &'
+alias kdenlive='setsid kdenlive >/dev/null 2>&1 &'
+alias tg='setsid tg >/dev/null 2>&1 &'
 alias discord='setsid snap run discord >/dev/null 2>&1 &'
 alias insomnia='setsid insomnia >/dev/null 2>&1 &'
 alias postman='setsid postman >/dev/null 2>&1 &'
 alias rustdesk='setsid rustdesk >/dev/null 2>&1 &'
+alias remmina='setsid remmina >/dev/null 2>&1 &'
 alias wireshark='setsid wireshark >/dev/null 2>&1 &'
 # capture packets in the terminal and write to that file, max 10files each being 500MB
 # when the 10files become full it'll overwrite the first and then 2nd and so on
@@ -70,7 +73,7 @@ alias wireshark='setsid wireshark >/dev/null 2>&1 &'
 alias capture='dumpcap -i 1 -w ~/Documents/sample.pcapng -b filesize:500000 -b files:10'
 
 
-    # Docker, k8s, and maven
+    # Docker | k8s | maven | k6 | playwright
 alias k='kubectl'
 alias kall='kubectl get pods -A'
 
@@ -78,6 +81,7 @@ alias d='docker'
 
 alias mci='mvn clean install'
 alias msr='mvn spring-boot:run'
+# run spring-boot with trace
 alias mvnt='mvn spring-boot:run \
   -Dspring-boot.run.jvmArguments="-javaagent:/home/ibrahim/opentelemetry-javaagent.jar \
   -Dotel.exporter.otlp.endpoint=http://localhost:4318 \
@@ -86,6 +90,11 @@ alias mvnt='mvn spring-boot:run \
   -Dotel.logs.exporter=none"
 '
 
+# follow with --vus, --duration and file-path
+alias k6run='K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM=true k6 run --out experimental-prometheus-rw=http://localhost:9090/api/v1/write'
+alias k6login='k6 run --out experimental-prometheus-rw=http://localhost:9090/api/v1/write sonarqube_login.js'
+
+alias npt='npx playwright test'
 
     # git aliases
 alias gc='git commit -m'
