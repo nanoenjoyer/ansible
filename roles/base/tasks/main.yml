@@ -28,7 +28,7 @@
       - tmux
       - vim
       - vlc
-      - kdenlive
+      # - kdenlive
       - nginx
       - docker.io
       - docker-compose
