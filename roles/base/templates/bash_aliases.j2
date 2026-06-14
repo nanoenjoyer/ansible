@@ -64,6 +64,7 @@ alias tg='setsid tg >/dev/null 2>&1 &'
 alias discord='setsid snap run discord >/dev/null 2>&1 &'
 alias insomnia='setsid insomnia >/dev/null 2>&1 &'
 alias postman='setsid postman >/dev/null 2>&1 &'
+alias idea='setsid idea >/dev/null 2>&1 &'
 alias rustdesk='setsid rustdesk >/dev/null 2>&1 &'
 alias remmina='setsid remmina >/dev/null 2>&1 &'
 alias wireshark='setsid wireshark >/dev/null 2>&1 &'
@@ -115,6 +116,16 @@ alias gname='git config --global user.name'
 alias mail='git config user.email'
 alias name='git config user.name'
 
+# sync main and dev(or any other branch) after a PR on remote
+gsyncdev() {
+  git switch main
+  git pull origin main
+  git switch dev
+  git merge main
+  git push origin dev
+}
+
+
 
     # GitHub key-gen aliases
 # generate a new key for github acc (add space and enter account email or username in quotes)
@@ -136,13 +147,6 @@ alias cpkey_alt='cat ~/.ssh/id_ed25519_alt.pub'
 # expected output: Hi (username!) You've successfully authenticated...
 alias testkey='ssh -T git@github.com'
 alias testkey_alt='ssh -T git@github.com-alt'
-
-
-    # firefox aliases
-alias youtube='setsid firefox youtube.com/feed/playlists >/dev/null 2>&1 &'
-alias calc='setsid firefox https://ibrahimmoalim.github.io/JavaScript/basic-projects/basic_calculator/ >/dev/null 2>&1 &'
-alias rps='setsid firefox https://ibrahimmoalim.github.io/JavaScript/basic-projects/rps-with-bot-battles/ >/dev/null 2>&1 &'
-alias coinflip='setsid firefox https://ibrahimmoalim.github.io/JavaScript/basic-projects/coin-flip/ >/dev/null 2>&1 &'
 
 
     # My Python programs
