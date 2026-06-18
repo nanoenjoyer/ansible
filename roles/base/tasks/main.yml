@@ -73,6 +73,15 @@
     group: "{{ user_name }}"
     mode: '0644'
 
+- name: Copy tmux config for minimal servers
+  tags: config-minimal
+  template:
+    src: tmux-minimal_server.conf.j2
+    dest: "{{ user_home }}/.tmux.conf"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0644'
+
 - name: Copy vimrc
   tags: config
   copy:
